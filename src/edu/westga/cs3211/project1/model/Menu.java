@@ -39,4 +39,14 @@ public class Menu {
 		}
 		return min;
 	}
+
+	public ArrayList<MenuItem> getItemCollection() {
+		return itemCollection;
+	}
+
+	public String getRestaurantName() {
+		return restaurantName;
+	}
+	
+	
 }

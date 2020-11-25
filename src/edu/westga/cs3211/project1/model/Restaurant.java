@@ -19,4 +19,21 @@ public class Restaurant {
 	public double getPriceRange() {
 		return this.menu.getPriceRange();
 	}
+
+	public double getReviewScore() {
+		return reviewScore;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
 }
