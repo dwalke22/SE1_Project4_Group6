@@ -1,6 +1,6 @@
 package edu.westga.cs3211.project1.model;
 
-public class Restaruant {
+public class Restaurant {
 	private double reviewScore;
 	
 	private double distance;
@@ -9,7 +9,7 @@ public class Restaruant {
 	
 	private String name;
 	
-	public Restaruant(double distance, double reviewScore, Menu menu, String name) {
+	public Restaurant(double distance, double reviewScore, Menu menu, String name) {
 		this.distance = distance;
 		this.reviewScore = reviewScore;
 		this.menu = menu;
