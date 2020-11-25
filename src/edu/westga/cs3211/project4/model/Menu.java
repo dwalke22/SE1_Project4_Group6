@@ -1,4 +1,4 @@
-package edu.westga.cs3211.project1.model;
+package edu.westga.cs3211.project4.model;
 
 import java.util.ArrayList;
 
