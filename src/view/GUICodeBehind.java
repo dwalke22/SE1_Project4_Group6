@@ -34,7 +34,7 @@ public class GUICodeBehind {
     private TextArea resturantTextArea;
 
     @FXML
-    private ListView<?> menuListView;
+    private TextArea menuTextArea;
 
     @FXML
     void handleApplyFilters(ActionEvent event) {

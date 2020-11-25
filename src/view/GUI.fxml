@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="15.0" layoutY="-1.0" prefHeight="31.0" prefWidth="82.0" text="Resturants">
@@ -56,6 +55,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ListView fx:id="menuListView" layoutX="250.0" layoutY="490.0" prefHeight="200.0" prefWidth="336.0" style="-fx-border-color: black; -fx-border-width: 1;" />
+      <TextArea fx:id="menuTextArea" editable="false" layoutX="250.0" layoutY="490.0" prefHeight="200.0" prefWidth="335.0" style="-fx-border-color: black;" wrapText="true" />
    </children>
 </Pane>
