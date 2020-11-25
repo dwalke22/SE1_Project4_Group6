@@ -17,9 +17,9 @@
       </Label>
       <ListView fx:id="resturantListView" layoutX="15.0" layoutY="30.0" prefHeight="400.0" prefWidth="300.0" style="-fx-border-color: black; -fx-border-image-width: 2;" />
       <ComboBox fx:id="priceRangeComboBox" layoutX="355.0" layoutY="30.0" prefHeight="40.0" prefWidth="230.0" promptText="Price Range" />
-      <ComboBox layoutX="355.0" layoutY="90.0" prefHeight="40.0" prefWidth="230.0" promptText="Distance" />
+      <ComboBox fx:id="distanceComboBox" layoutX="355.0" layoutY="90.0" prefHeight="40.0" prefWidth="230.0" promptText="Distance" />
       <ComboBox fx:id="reviewScoreComboBox" layoutX="355.0" layoutY="150.0" prefHeight="40.0" prefWidth="230.0" promptText="Review Score" />
-      <ComboBox layoutX="355.0" layoutY="210.0" prefHeight="40.0" prefWidth="230.0" promptText="Food Type" />
+      <ComboBox fx:id="foodTypeComboBox" layoutX="355.0" layoutY="210.0" prefHeight="40.0" prefWidth="230.0" promptText="Food Type" />
       <Button fx:id="applyFilterButton" layoutX="355.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleApplyFilters" prefHeight="40.0" prefWidth="95.0" text="Apply Filters">
          <font>
             <Font size="13.0" />

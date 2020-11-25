@@ -1,5 +1,6 @@
 package view;
 
+import edu.westga.cs3211.project4.model.Restaurant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,13 +11,19 @@ import javafx.scene.control.TextArea;
 public class GUICodeBehind {
 
 	@FXML
-    private ListView<?> resturantListView;
+    private ListView<Restaurant> resturantListView;
 
     @FXML
     private ComboBox<?> priceRangeComboBox;
+    
+    @FXML
+    private ComboBox<?> distanceComboBox;
 
     @FXML
     private ComboBox<?> reviewScoreComboBox;
+    
+    @FXML
+    private ComboBox<?> foodTypeComboBox;
 
     @FXML
     private Button applyFilterButton;
