@@ -38,6 +38,8 @@ public class Menu {
 	
 	/**
 	 * gets the price range of the menu
+	 * @preconditions none
+	 * @postconditions none
 	 * @return the price range of the menu
 	 */
 	public double getPriceRange() {

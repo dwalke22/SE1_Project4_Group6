@@ -12,7 +12,7 @@ import edu.westga.cs3211.project4.model.MenuItem;
 class TestGetPriceRange {
 
 	@Test
-	void test() {
+	void testThreeItems() {
 		MenuItem item1 = new MenuItem("test1",5.70);
 		MenuItem item2 = new MenuItem("test2",7.45);
 		MenuItem item3 = new MenuItem("test3",10.0);
@@ -23,6 +23,28 @@ class TestGetPriceRange {
 		Menu testMenu = new Menu(arrayList,"restaurant");
 		
 		assertEquals(testMenu.getPriceRange(),4.3);
+	}
+	
+	@Test
+	void testOneItems() {
+		MenuItem item1 = new MenuItem("test1",5.70);
+		ArrayList<MenuItem> arrayList = new ArrayList<MenuItem>();
+		arrayList.add(item1);
+		Menu testMenu = new Menu(arrayList,"restaurant");
+		
+		assertEquals(testMenu.getPriceRange(),0);
+	}
+	
+	@Test
+	void testTwoItemsSamePrice() {
+		MenuItem item1 = new MenuItem("test1",5.70);
+		MenuItem item2 = new MenuItem("test2",5.70);
+		ArrayList<MenuItem> arrayList = new ArrayList<MenuItem>();
+		arrayList.add(item1);
+		arrayList.add(item2);
+		Menu testMenu = new Menu(arrayList,"restaurant");
+		
+		assertEquals(testMenu.getPriceRange(),0);
 	}
 
 }
