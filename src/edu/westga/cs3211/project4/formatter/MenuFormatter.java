@@ -24,7 +24,7 @@ public class MenuFormatter {
 		String formattedString = menu.getRestaurantName() + System.lineSeparator();
 		
 		for (MenuItem currentItem : menu.getItemCollection()) {
-			formattedString += currentItem.getName() + "- $" + (Math.round(currentItem.getPrice()*100.0)/100.0) + System.lineSeparator();
+			formattedString += currentItem.getName() + " - $" + (Math.round(currentItem.getPrice()*100.0)/100.0) + System.lineSeparator();
 		}
 		
 		return formattedString;
