@@ -11,7 +11,7 @@ public class RestaurantFormatter {
 	public String FormatRestaurant(Restaurant restaurant) {
 		String name = restaurant.getName();
 		String distance = " is "+(Math.round(restaurant.getDistance()*100.0)/100.0) + " miles away ";
-		String reviewScore = "with a review score of " + restaurant.getReviewScore() + " stars.";
+		String reviewScore = "with a review score of " + (Math.round(restaurant.getReviewScore()*100.0)/100.0) + " star(s).";
 		
 		return name + distance + reviewScore;
 	}
