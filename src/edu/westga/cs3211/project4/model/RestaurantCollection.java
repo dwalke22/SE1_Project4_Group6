@@ -42,7 +42,7 @@ public class RestaurantCollection {
 	}
 	
 	/**
-	 * filters out restaurants with a price range than the desiredPriceRange,
+	 * filters out restaurants with a price range bigger than the desiredPriceRange,
 	 * then returns a new RestaurantCollection with only restaurants within the given price range
 	 * @preconditions desiredPriceRange is greater than zero
 	 * @postconditions none

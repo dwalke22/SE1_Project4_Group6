@@ -10,7 +10,7 @@ import edu.westga.cs3211.project4.model.Menu;
 import edu.westga.cs3211.project4.model.MenuItem;
 import edu.westga.cs3211.project4.model.Restaurant;
 
-class testRestaurantConstructor {
+class TestRestaurantConstructor {
 
 	@Test
 	void testValidConstructor() {

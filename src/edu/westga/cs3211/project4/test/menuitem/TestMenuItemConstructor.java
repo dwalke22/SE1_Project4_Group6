@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs3211.project4.model.Menu;
 import edu.westga.cs3211.project4.model.MenuItem;
 
-class testMenuItemConstructor {
+class TestMenuItemConstructor {
 
 	@Test
 	void testNullName() {
