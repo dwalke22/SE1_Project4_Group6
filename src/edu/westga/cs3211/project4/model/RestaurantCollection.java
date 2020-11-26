@@ -94,7 +94,7 @@ public class RestaurantCollection {
 
 	/**
 	 * gets the restaurants
-	 * @return the restaurnats
+	 * @return the restaurants
 	 */
 	public ArrayList<Restaurant> getRestaurants() {
 		return restaurants;

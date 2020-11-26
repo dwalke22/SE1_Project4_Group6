@@ -80,5 +80,38 @@ public class ResturantPickerViewModel {
 		return resturantListProperty;
 	}
 	
+	/**
+	 * Applies the filters and gathers the resulting restaurants
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	public void applyFilters() {
+		RestaurantCollection filteredCollection = this.resturantCollection;
+		if (this.priceRangeProperty != null) {
+			filteredCollection = filteredCollection.filterByPriceRange(this.priceRangeProperty.doubleValue());
+		}
+		if (this.ratingRangeProperty != null) {
+			filteredCollection = filteredCollection.filterByReview(this.ratingRangeProperty.doubleValue());
+		}
+		if (this.distanceProperty != null) {
+			filteredCollection = filteredCollection.filterByLocation(this.distanceProperty.doubleValue());
+		}
+		this.updateDisplay(filteredCollection);
+	}
+
+	private void updateDisplay(RestaurantCollection filteredCollection) {
+		this.resturantListProperty.set(FXCollections.observableArrayList(filteredCollection.getRestaurants()));
+		
+	}
 	
+	/**
+	 * Resets the applied filters
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	public void resetFilters() {
+		this.updateDisplay(this.resturantCollection);
+	}
 }

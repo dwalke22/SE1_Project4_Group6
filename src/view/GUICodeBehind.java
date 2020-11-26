@@ -1,5 +1,7 @@
 package view;
 
+import edu.westga.cs3211.project4.formatter.MenuFormatter;
+import edu.westga.cs3211.project4.formatter.RestaurantFormatter;
 import edu.westga.cs3211.project4.model.Restaurant;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -16,6 +18,8 @@ import viewModel.ResturantPickerViewModel;
 public class GUICodeBehind {
 
 	private ResturantPickerViewModel viewmodel;
+	private MenuFormatter menuFormatter;
+	private RestaurantFormatter restaurantFormatter;
 	
 	 @FXML
 	 private ListView<Restaurant> resturantListView;
@@ -61,6 +65,8 @@ public class GUICodeBehind {
 	  */
 	 public GUICodeBehind() {
 		 this.viewmodel = new ResturantPickerViewModel();
+		 this.menuFormatter = new MenuFormatter();
+		 this.restaurantFormatter = new RestaurantFormatter();
 	 }
 	 
 	 @FXML
@@ -68,9 +74,21 @@ public class GUICodeBehind {
 		 this.bindToViewModel();
 		 this.setUpEnablingOfControls();
 		 this.setUpListenerForValidation();
+		 this.setUpchangeListenerForListView();
 	 }
 
-	 private void setUpListenerForValidation() {
+	 private void setUpchangeListenerForListView() {
+		this.resturantListView.getSelectionModel().selectedItemProperty()
+			.addListener((observable, oldRestaurant, newRestaurant) -> {
+				if (newRestaurant != null) {
+					this.resturantTextArea.textProperty().set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
+					this.menuTextArea.textProperty().set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
+				}
+			});
+		
+	}
+
+	private void setUpListenerForValidation() {
 		this.priceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue != null) {
 				if (!newValue.matches("^-?\\d*\\.\\d{2}$")) {
@@ -121,7 +139,7 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleApplyFilters(ActionEvent event) {
-
+		 this.viewmodel.applyFilters();
 	 }
 
 	 @FXML
@@ -136,6 +154,6 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleResetFilter(ActionEvent event) {
-
+		 this.viewmodel.resetFilters();
 	 }
 }
