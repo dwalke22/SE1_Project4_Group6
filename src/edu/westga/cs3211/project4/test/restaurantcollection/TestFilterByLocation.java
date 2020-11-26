@@ -140,7 +140,7 @@ class TestFilterByLocation {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					RestaurantCollection filteredCollection = testCollection.filterByLocation(0);
+					testCollection.filterByLocation(0);
 				});
 		
 	}

@@ -155,7 +155,7 @@ class TestFilterByPriceRange {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					RestaurantCollection filteredCollection = testCollection.filterByPriceRange(0);
+					testCollection.filterByPriceRange(0);
 				});
 		
 	}

@@ -16,7 +16,7 @@ class TestMenuConstructor {
 		ArrayList<MenuItem> arrayList = new ArrayList<MenuItem>();
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Menu testMenu = new Menu(arrayList,"restaurant");
+					new Menu(arrayList,"restaurant");
 				});
 	}
 		
@@ -25,7 +25,7 @@ class TestMenuConstructor {
 		ArrayList<MenuItem> arrayList = null;
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Menu testMenu = new Menu(arrayList,"restaurant");
+					new Menu(arrayList,"restaurant");
 				});
 	}
 	
@@ -42,7 +42,7 @@ class TestMenuConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Menu testMenu = new Menu(arrayList,null);
+					new Menu(arrayList,null);
 				});
 	}
 	
