@@ -7,9 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.util.converter.NumberStringConverter;
+import viewModel.ResturantPickerViewModel;
 
 public class GUICodeBehind {
 
+	private ResturantPickerViewModel viewmodel;
+	
 	 @FXML
 	 private ListView<Restaurant> resturantListView;
 
@@ -39,8 +43,27 @@ public class GUICodeBehind {
 
 	 @FXML
 	 private TextField distanceTextField;
-
+	 
+	 /*
+	  * Instantiates a new code behind.
+	  */
+	 public GUICodeBehind() {
+		this.viewmodel = new ResturantPickerViewModel();
+	 }
+	 
 	 @FXML
+	 void initalize() {
+		 this.bindToViewModel();
+	 }
+
+	 private void bindToViewModel() {
+		this.priceTextField.textProperty().bindBidirectional(this.viewmodel.priceRangeProperty(), new NumberStringConverter());
+		this.ratingTextField.textProperty().bindBidirectional(this.viewmodel.ratingRangeProperty(), new NumberStringConverter());
+		this.distanceTextField.textProperty().bindBidirectional(this.viewmodel.distanceProperty(), new NumberStringConverter());
+		this.resturantListView.itemsProperty().bind(this.viewmodel.resturantListProperty());
+	}
+
+	@FXML
 	 void handleApplyFilters(ActionEvent event) {
 
 	 }
