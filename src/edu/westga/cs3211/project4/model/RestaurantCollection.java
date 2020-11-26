@@ -2,8 +2,12 @@ package edu.westga.cs3211.project4.model;
 
 import java.util.ArrayList;
 
-public class RestaurantCollection {
+public class RestaurantCollection implements java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Restaurant> restaurants;
 		
 	/**

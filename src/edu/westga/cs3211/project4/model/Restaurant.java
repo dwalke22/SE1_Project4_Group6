@@ -1,6 +1,11 @@
 package edu.westga.cs3211.project4.model;
 
-public class Restaurant {
+public class Restaurant implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private double reviewScore;
 	
 	private double distance;

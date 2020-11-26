@@ -5,7 +5,12 @@ package edu.westga.cs3211.project4.model;
  * @author Sam
  *
  */
-public class MenuItem {
+public class MenuItem implements java.io.Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	

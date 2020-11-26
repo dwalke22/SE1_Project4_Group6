@@ -7,8 +7,13 @@ import java.util.ArrayList;
  * @author Sam
  *
  */
-public class Menu {
+public class Menu implements java.io.Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private ArrayList<MenuItem> itemCollection;
 	
 	private String restaurantName;
