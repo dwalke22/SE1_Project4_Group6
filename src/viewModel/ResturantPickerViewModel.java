@@ -1,5 +1,8 @@
 package viewModel;
 
+import java.io.File;
+
+import edu.westga.cs3211.project4.filehandling.RestaurantFileHandler;
 import edu.westga.cs3211.project4.model.Restaurant;
 import edu.westga.cs3211.project4.model.RestaurantCollection;
 import javafx.beans.property.DoubleProperty;
@@ -113,5 +116,10 @@ public class ResturantPickerViewModel {
 	 */
 	public void resetFilters() {
 		this.updateDisplay(this.resturantCollection);
+	}
+	
+	public void loadFile(File selectedFile) {
+		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
+		this.resturantCollection = fileHandler.DeSerializeRestaurants(selectedFile);
 	}
 }

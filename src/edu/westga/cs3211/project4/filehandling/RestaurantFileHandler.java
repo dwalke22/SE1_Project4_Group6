@@ -20,42 +20,24 @@ import edu.westga.cs3211.project4.model.RestaurantCollection;
 
 public class RestaurantFileHandler {
 	
-	public void deSerializeRestaurants() {
-		
-		JFileChooser fc = new JFileChooser();
-		
-		int result = fc.showOpenDialog(null);
-		
-		if (JFileChooser.APPROVE_OPTION == result) {
-			File selectedFile = fc.getSelectedFile();
-			
-			FileInputStream inputFile;
+	public RestaurantCollection DeSerializeRestaurants(File file) {
+		RestaurantCollection readInCollection = null;
 			try {
-				inputFile = new FileInputStream(selectedFile);
+				FileInputStream inputFile = new FileInputStream(file);
 				ObjectInputStream in = new ObjectInputStream(inputFile);
 				
-				RestaurantCollection readInCollection = (RestaurantCollection)in.readObject();
+				readInCollection = (RestaurantCollection)in.readObject();
 				
 				in.close();
 				inputFile.close();
 				
-				RestaurantFormatter testFormatter = new RestaurantFormatter();
-				MenuFormatter testMenuFormatter = new MenuFormatter();
-				for (Restaurant currRestaurant : readInCollection.getRestaurants()) {
-					System.out.println(testFormatter.FormatRestaurant(currRestaurant));
-					System.out.println(testMenuFormatter.formatMenu(currRestaurant.getMenu()));
-				}
-				
 			} catch (IOException | ClassNotFoundException e) {
 				
-				System.out.println("loading exception caught");
+				
 			}
+			
+			return readInCollection;
 		}
-		else {
-			System.out.println("file not picked");
-		}
-		
-		
 		
 	}
-}
+

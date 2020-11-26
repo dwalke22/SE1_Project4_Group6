@@ -1,5 +1,9 @@
 package view;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
 import edu.westga.cs3211.project4.formatter.MenuFormatter;
 import edu.westga.cs3211.project4.formatter.RestaurantFormatter;
 import edu.westga.cs3211.project4.model.Restaurant;
@@ -81,6 +85,10 @@ public class GUICodeBehind {
 		this.resturantListView.getSelectionModel().selectedItemProperty()
 			.addListener((observable, oldRestaurant, newRestaurant) -> {
 				if (newRestaurant != null) {
+					//TODO: formatting should not be done in the code behind according to the project specifications.
+					//		Instead you should be calling a method from the RestaurantPickerViewModel which returns
+					//		the string that you use here. Consider using a method that takes newRestaurant as a parameter
+					//		and then just returns the string to be set to each textProperty
 					this.resturantTextArea.textProperty().set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
 					this.menuTextArea.textProperty().set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
 				}
@@ -149,7 +157,12 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
-
+		 JFileChooser fileChooser = new JFileChooser();
+		 int result = fileChooser.showOpenDialog(null);
+		 if (result == JFileChooser.APPROVE_OPTION) {
+			 File selectedFile = fileChooser.getSelectedFile();
+			 this.viewmodel.loadFile(selectedFile);
+		 }
 	 }
 
 	 @FXML
