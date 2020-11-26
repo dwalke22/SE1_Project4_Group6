@@ -4,8 +4,6 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 
-import edu.westga.cs3211.project4.formatter.MenuFormatter;
-import edu.westga.cs3211.project4.formatter.RestaurantFormatter;
 import edu.westga.cs3211.project4.model.Restaurant;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -22,8 +20,6 @@ import viewModel.ResturantPickerViewModel;
 public class GUICodeBehind {
 
 	private ResturantPickerViewModel viewmodel;
-	private MenuFormatter menuFormatter;
-	private RestaurantFormatter restaurantFormatter;
 	
 	 @FXML
 	 private ListView<Restaurant> resturantListView;
@@ -69,8 +65,6 @@ public class GUICodeBehind {
 	  */
 	 public GUICodeBehind() {
 		 this.viewmodel = new ResturantPickerViewModel();
-		 this.menuFormatter = new MenuFormatter();
-		 this.restaurantFormatter = new RestaurantFormatter();
 	 }
 	 
 	 @FXML
@@ -85,12 +79,7 @@ public class GUICodeBehind {
 		this.resturantListView.getSelectionModel().selectedItemProperty()
 			.addListener((observable, oldRestaurant, newRestaurant) -> {
 				if (newRestaurant != null) {
-					//TODO: formatting should not be done in the code behind according to the project specifications.
-					//		Instead you should be calling a method from the RestaurantPickerViewModel which returns
-					//		the string that you use here. Consider using a method that takes newRestaurant as a parameter
-					//		and then just returns the string to be set to each textProperty
-					this.resturantTextArea.textProperty().set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
-					this.menuTextArea.textProperty().set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
+					this.viewmodel.formatSelectedResturant(newRestaurant);
 				}
 			});
 		
@@ -143,6 +132,8 @@ public class GUICodeBehind {
 		 this.ratingTextField.textProperty().bindBidirectional(this.viewmodel.ratingRangeProperty(), new NumberStringConverter());
 		 this.distanceTextField.textProperty().bindBidirectional(this.viewmodel.distanceProperty(), new NumberStringConverter());
 		 this.resturantListView.itemsProperty().bind(this.viewmodel.resturantListProperty());
+		 this.menuTextArea.textProperty().bindBidirectional(this.viewmodel.menuDetailProperty());
+		 this.resturantTextArea.textProperty().bindBidirectional(this.viewmodel.restaurantDetailProperty());
 	 }
 
 	 @FXML
