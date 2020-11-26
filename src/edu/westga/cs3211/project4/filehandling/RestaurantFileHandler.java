@@ -9,10 +9,12 @@ import edu.westga.cs3211.project4.model.RestaurantCollection;
 
 public class RestaurantFileHandler {
 	
-	public RestaurantCollection DeSerializeRestaurants(File file) {
+	public RestaurantCollection DeSerializeRestaurants() {
+		
+		
 		RestaurantCollection readInCollection = null;
 			try {
-				FileInputStream inputFile = new FileInputStream(file);
+				FileInputStream inputFile = new FileInputStream("Restaurants");
 				ObjectInputStream in = new ObjectInputStream(inputFile);
 				
 				readInCollection = (RestaurantCollection)in.readObject();

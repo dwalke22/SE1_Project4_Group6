@@ -161,9 +161,17 @@ public class ResturantPickerViewModel {
 	 * @precondition file != null
 	 * @postcondition none
 	 */
-	public void loadFile(File selectedFile) {
+	//public void loadFile(File selectedFile) {
+		//RestaurantFileHandler fileHandler = new RestaurantFileHandler();
+		//this.resturantCollection = fileHandler.DeSerializeRestaurants(selectedFile);
+	//}
+	
+	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
-		this.resturantCollection = fileHandler.DeSerializeRestaurants(selectedFile);
+		this.resturantCollection = fileHandler.DeSerializeRestaurants();
+		
+		this.updateDisplay(resturantCollection);
+		
 	}
 
 	/*

@@ -84,6 +84,20 @@ public class GUICodeBehind {
 			});
 		
 	}
+	 private void setUpchangeListenerForListViewRestaurants() {
+			//this.resturantListView.getSelectionModel().selectedItemProperty()
+				//.addListener((observable, oldRestaurant, newRestaurant) -> {
+				//	if (newRestaurant != null) {
+				//		this.viewmodel.formatSelectedResturant(newRestaurant);
+				//	}
+				//});
+		 this.resturantListView.itemsProperty().addListener((observable, oldRestaurant, newRestaurant) -> {
+			 if (newRestaurant != null) {
+				 
+			 }
+		 });
+			
+		}
 
 	private void setUpListenerForValidation() {
 		this.priceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -148,12 +162,15 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
-		 JFileChooser fileChooser = new JFileChooser();
-		 int result = fileChooser.showOpenDialog(null);
-		 if (result == JFileChooser.APPROVE_OPTION) {
-			 File selectedFile = fileChooser.getSelectedFile();
-			 this.viewmodel.loadFile(selectedFile);
-		 }
+		 //JFileChooser fileChooser = new JFileChooser();
+		 //int result = fileChooser.showOpenDialog(null);
+		 //if (result == JFileChooser.APPROVE_OPTION) {
+			 //File selectedFile = fileChooser.getSelectedFile();
+			 //this.viewmodel.loadFile(selectedFile);
+		 //}
+		 this.viewmodel.loadFile();
+		 
+		 
 	 }
 
 	 @FXML
