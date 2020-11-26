@@ -38,7 +38,7 @@ public class ResturantPickerViewModel {
 		this.ratingRangeProperty = new SimpleDoubleProperty();
 		this.distanceProperty = new SimpleDoubleProperty();
 		this.resturantCollection = new RestaurantCollection();
-		this.resturantListProperty = new SimpleListProperty<Restaurant>(FXCollections.observableArrayList(this.resturantCollection.getRestaurants()));
+		this.resturantListProperty = new SimpleListProperty<Restaurant>();
 		this.restaurantDetailProperty = new SimpleStringProperty();
 		this.menuDetailProperty = new SimpleStringProperty();
 		
@@ -161,9 +161,9 @@ public class ResturantPickerViewModel {
 	 */
 	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
-		this.resturantCollection.setRestaurants(fileHandler.DeSerializeRestaurants().getRestaurants());
-		this.resturantCollection = fileHandler.DeSerializeRestaurants();
-		this.updateDisplay(this.resturantCollection);
+		RestaurantCollection loadedCollection = fileHandler.DeSerializeRestaurants();
+		this.resturantCollection.setRestaurants(loadedCollection.getRestaurants());
+		this.resturantListProperty.set(FXCollections.observableArrayList(this.resturantCollection.getRestaurants()));
 	}
 
 	/*
