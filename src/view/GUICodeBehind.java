@@ -1,6 +1,8 @@
 package view;
 
 import edu.westga.cs3211.project4.model.Restaurant;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -54,9 +56,17 @@ public class GUICodeBehind {
 	 @FXML
 	 void initalize() {
 		 this.bindToViewModel();
+		 this.setUpEnablingOfControls();
 	 }
 
-	 private void bindToViewModel() {
+	 private void setUpEnablingOfControls() {
+		BooleanBinding disableAddBinding = Bindings.or(this.priceTextField.textProperty().isEmpty(),
+				this.ratingTextField.textProperty().isEmpty()).
+				or(this.distanceTextField.textProperty().isEmpty());
+		this.applyFilterButton.disableProperty().bind(disableAddBinding);
+	}
+
+	private void bindToViewModel() {
 		this.priceTextField.textProperty().bindBidirectional(this.viewmodel.priceRangeProperty(), new NumberStringConverter());
 		this.ratingTextField.textProperty().bindBidirectional(this.viewmodel.ratingRangeProperty(), new NumberStringConverter());
 		this.distanceTextField.textProperty().bindBidirectional(this.viewmodel.distanceProperty(), new NumberStringConverter());
