@@ -44,7 +44,7 @@ class TestRestaurantConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Restaurant testRestaurant = new Restaurant(0,3,testMenu,"restaurant");
+					new Restaurant(0,3,testMenu,"restaurant");
 				});
 		
 	}
@@ -63,7 +63,7 @@ class TestRestaurantConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Restaurant testRestaurant = new Restaurant(3.65,-1,testMenu,"restaurant");
+					new Restaurant(3.65,-1,testMenu,"restaurant");
 				});
 		
 	}
@@ -73,7 +73,7 @@ class TestRestaurantConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Restaurant testRestaurant = new Restaurant(1,0,null,"restaurant");
+					new Restaurant(1,0,null,"restaurant");
 				});
 		
 	}
@@ -92,7 +92,7 @@ class TestRestaurantConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					Restaurant testRestaurant = new Restaurant(3.65,4,testMenu,null);
+					new Restaurant(3.65,4,testMenu,null);
 				});
 		
 	}

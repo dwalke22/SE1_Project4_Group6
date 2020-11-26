@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.cs3211.project4.model.Menu;
 import edu.westga.cs3211.project4.model.MenuItem;
 
 class TestMenuItemConstructor {
@@ -14,7 +13,7 @@ class TestMenuItemConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					MenuItem item1 = new MenuItem(null,5.70);
+					new MenuItem(null,5.70);
 				});
 	}
 	
@@ -23,7 +22,7 @@ class TestMenuItemConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					MenuItem item1 = new MenuItem("item1",-5.70);
+					new MenuItem("item1",-5.70);
 				});
 	}
 	
@@ -32,7 +31,7 @@ class TestMenuItemConstructor {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					MenuItem item1 = new MenuItem("item1",0);
+					new MenuItem("item1",0);
 				});
 	}
 	

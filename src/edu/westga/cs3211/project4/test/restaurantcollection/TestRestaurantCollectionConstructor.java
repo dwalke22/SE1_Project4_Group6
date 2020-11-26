@@ -50,7 +50,7 @@ class TestRestaurantCollectionConstructor {
 	void testInvalidList() {
 	assertThrows(IllegalArgumentException.class,
 			()-> {
-				RestaurantCollection testCollection = new RestaurantCollection(null);
+				new RestaurantCollection(null);
 			});
 	}
 }

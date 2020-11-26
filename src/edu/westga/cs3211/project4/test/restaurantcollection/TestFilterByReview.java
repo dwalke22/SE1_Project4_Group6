@@ -136,7 +136,7 @@ class TestFilterByReview {
 		
 		assertThrows(IllegalArgumentException.class,
 				()-> {
-					RestaurantCollection filteredCollection = testCollection.filterByReview(-1);
+					testCollection.filterByReview(-1);
 				});
 		
 	}
