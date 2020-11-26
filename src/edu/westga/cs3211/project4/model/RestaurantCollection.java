@@ -20,6 +20,13 @@ public class RestaurantCollection {
 	}
 	
 	/**
+	 * Default constructor for RestaurantCollection
+	 */
+	public RestaurantCollection() {
+		this.restaurants = new ArrayList<Restaurant>();
+	}
+	
+	/**
 	 * filters out restaurants with a location higher than the desiredDistance,
 	 * then returns a new RestaurantCollection with only restaurants within the desired distance
 	 * @preconditions desiredDistance is greater than zero
@@ -92,6 +99,5 @@ public class RestaurantCollection {
 	public ArrayList<Restaurant> getRestaurants() {
 		return restaurants;
 	}
-	
 	
 }
