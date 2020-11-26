@@ -1,9 +1,10 @@
-package view;
+package edu.westga.cs3211.project4.View;
 
 import java.io.File;
 
 import javax.swing.JFileChooser;
 
+import edu.westga.cs3211.project4.ViewModel.ResturantPickerViewModel;
 import edu.westga.cs3211.project4.model.Restaurant;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -15,7 +16,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
-import viewModel.ResturantPickerViewModel;
 
 public class GUICodeBehind {
 
@@ -84,20 +84,6 @@ public class GUICodeBehind {
 			});
 		
 	}
-	 private void setUpchangeListenerForListViewRestaurants() {
-			//this.resturantListView.getSelectionModel().selectedItemProperty()
-				//.addListener((observable, oldRestaurant, newRestaurant) -> {
-				//	if (newRestaurant != null) {
-				//		this.viewmodel.formatSelectedResturant(newRestaurant);
-				//	}
-				//});
-		 this.resturantListView.itemsProperty().addListener((observable, oldRestaurant, newRestaurant) -> {
-			 if (newRestaurant != null) {
-				 
-			 }
-		 });
-			
-		}
 
 	private void setUpListenerForValidation() {
 		this.priceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -162,15 +148,7 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
-		 //JFileChooser fileChooser = new JFileChooser();
-		 //int result = fileChooser.showOpenDialog(null);
-		 //if (result == JFileChooser.APPROVE_OPTION) {
-			 //File selectedFile = fileChooser.getSelectedFile();
-			 //this.viewmodel.loadFile(selectedFile);
-		 //}
 		 this.viewmodel.loadFile();
-		 
-		 
 	 }
 
 	 @FXML

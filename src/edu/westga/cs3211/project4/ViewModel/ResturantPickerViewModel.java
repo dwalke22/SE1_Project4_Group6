@@ -1,4 +1,4 @@
-package viewModel;
+package edu.westga.cs3211.project4.ViewModel;
 
 import java.io.File;
 
@@ -161,17 +161,10 @@ public class ResturantPickerViewModel {
 	 * @precondition file != null
 	 * @postcondition none
 	 */
-	//public void loadFile(File selectedFile) {
-		//RestaurantFileHandler fileHandler = new RestaurantFileHandler();
-		//this.resturantCollection = fileHandler.DeSerializeRestaurants(selectedFile);
-	//}
-	
 	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
 		this.resturantCollection = fileHandler.DeSerializeRestaurants();
-		
-		this.updateDisplay(resturantCollection);
-		
+		this.updateDisplay(this.resturantCollection);
 	}
 
 	/*
