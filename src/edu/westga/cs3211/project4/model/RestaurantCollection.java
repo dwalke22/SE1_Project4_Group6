@@ -104,4 +104,15 @@ public class RestaurantCollection implements java.io.Serializable {
 		return restaurants;
 	}
 	
+	/**
+	 * Sets the restaurants in the collection
+	 * 
+	 * @precondition restaurants != null
+	 * @postcondition getRestaurants() == restaurants
+	 * 
+	 * @param restaurants
+	 */
+	public void setRestaurants(ArrayList<Restaurant> restaurants) {
+		this.restaurants = restaurants;
+	}
 }

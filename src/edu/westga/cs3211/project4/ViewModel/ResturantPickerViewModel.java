@@ -164,7 +164,7 @@ public class ResturantPickerViewModel {
 	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
 		File file = new File("/SE1_Project4_Group6/Restaurants");
-		this.resturantCollection = fileHandler.DeSerializeRestaurants(file);
+		this.resturantCollection.setRestaurants(fileHandler.DeSerializeRestaurants(file).getRestaurants());
 		this.updateDisplay(this.resturantCollection);
 	}
 

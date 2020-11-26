@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 public class Main extends Application {
 	
 	private static final String WINDOW_TITLE = "Restaurant Picker";
-	private static final String GUI_FXML = "/view/GUI.fxml";
+	private static final String GUI_FXML = "/edu/westga/cs3211/project4/View/GUI.fxml";
 	
 	/**
 	 * Constructs a new Application object for the Restaurant Picker
@@ -23,6 +23,7 @@ public class Main extends Application {
 	public Main() {
 		super();
 	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {

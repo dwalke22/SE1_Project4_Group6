@@ -1,9 +1,5 @@
 package edu.westga.cs3211.project4.View;
 
-import java.io.File;
-
-import javax.swing.JFileChooser;
-
 import edu.westga.cs3211.project4.ViewModel.ResturantPickerViewModel;
 import edu.westga.cs3211.project4.model.Restaurant;
 import javafx.beans.binding.Bindings;
