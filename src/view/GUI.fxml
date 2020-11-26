@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="15.0" layoutY="-1.0" prefHeight="31.0" prefWidth="82.0" text="Resturants">
          <font>
@@ -26,6 +26,11 @@
             <Font size="16.0" />
          </font>
       </TextField>
+      <Label fx:id="priceErrorLabel" disable="true" layoutX="595.0" layoutY="40.0" prefHeight="70.0" prefWidth="148.0" text="Price Must Be in Format &quot;DDD.DD&quot;&quot;" textFill="RED" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
       <Label layoutX="355.0" layoutY="115.0" prefHeight="20.0" text="Rating">
          <font>
             <Font size="16.0" />
@@ -36,9 +41,24 @@
             <Font size="16.0" />
          </font>
       </TextField>
+      <Label fx:id="ratingErrorLabel" disable="true" layoutX="595.0" layoutY="135.0" prefHeight="50.0" prefWidth="148.0" text="Rating Must Be 0 or Higher" textFill="RED" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
       <Label layoutX="355.0" layoutY="200.0" text="Distance Willing to Travel (MI)">
          <font>
             <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="distanceTextField" layoutX="355.0" layoutY="225.0" prefHeight="30.0" prefWidth="230.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="distacneErrorLabel" disable="true" layoutX="595.0" layoutY="215.0" prefHeight="50.0" prefWidth="148.0" text="Distance Must Be 0 or Higher" textFill="RED" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Button fx:id="applyFilterButton" layoutX="355.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleApplyFilters" prefHeight="40.0" prefWidth="95.0" text="Apply Filters">
@@ -77,10 +97,5 @@
          </font>
       </Label>
       <TextArea fx:id="menuTextArea" editable="false" layoutX="250.0" layoutY="490.0" prefHeight="200.0" prefWidth="335.0" style="-fx-border-color: black;" wrapText="true" />
-      <TextField fx:id="distanceTextField" layoutX="355.0" layoutY="225.0" prefHeight="30.0" prefWidth="230.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
    </children>
 </Pane>
