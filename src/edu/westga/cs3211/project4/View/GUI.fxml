@@ -76,9 +76,9 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="loadAllMenusButton" layoutX="355.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleLoadAllMenues" prefHeight="40.0" prefWidth="230.0" text="Load All Menus">
+      <Button fx:id="selectRandomRestaurant" layoutX="355.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleSelectRandomRestaurant" prefHeight="40.0" prefWidth="230.0" text="Select Random Restaurant">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Button>
       <Label layoutX="15.0" layoutY="450.0" text="Resturant Details">

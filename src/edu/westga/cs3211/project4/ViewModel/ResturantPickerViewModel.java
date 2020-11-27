@@ -1,5 +1,7 @@
 package edu.westga.cs3211.project4.ViewModel;
 
+import java.util.Random;
+
 import edu.westga.cs3211.project4.filehandling.RestaurantFileHandler;
 import edu.westga.cs3211.project4.formatter.MenuFormatter;
 import edu.westga.cs3211.project4.formatter.RestaurantFormatter;
@@ -175,5 +177,18 @@ public class ResturantPickerViewModel {
 	public void formatSelectedResturant(Restaurant newRestaurant) {
 		this.restaurantDetailProperty.set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
 		this.menuDetailProperty.set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
+	}
+
+	/**
+	 * Selects a random restaurant from the collection
+	 */
+	public void selectRandomRestaurant() {
+		Random randomGenerator = new Random();
+		
+		int index = randomGenerator.nextInt(this.resturantCollection.size());
+		Restaurant selectedRestaurant = this.resturantCollection.getRestaurants().get(index);
+		
+		this.formatSelectedResturant(selectedRestaurant);
+		
 	}
 }

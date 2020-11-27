@@ -42,7 +42,7 @@ public class GUICodeBehind {
 	 private Button loadAllResturantsButton;
 
 	 @FXML
-	 private Button loadAllMenusButton;
+	 private Button selectRandomRestaurant;
 
 	 @FXML
 	 private TextArea resturantTextArea;
@@ -138,11 +138,6 @@ public class GUICodeBehind {
 	 }
 
 	 @FXML
-	 void handleLoadAllMenues(ActionEvent event) {
-
-	 }
-
-	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
 		 this.viewmodel.loadFile();
 	 }
@@ -150,5 +145,10 @@ public class GUICodeBehind {
 	 @FXML
 	 void handleResetFilter(ActionEvent event) {
 		 this.viewmodel.resetFilters();
+	 }
+	 
+	 @FXML
+	 void handleSelectRandomRestaurant(ActionEvent event) {
+		 this.viewmodel.selectRandomRestaurant();
 	 }
 }
