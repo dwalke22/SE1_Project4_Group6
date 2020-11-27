@@ -48,21 +48,10 @@ public class Menu implements java.io.Serializable{
 	 * @return the price range of the menu
 	 */
 	public double getPriceRange() {
-		double max = getMaxPrice();
-		double min = getMinPrice();
-		return max - min;
+		return this.getMinPrice();
 		
 	}
 
-	private double getMaxPrice() {
-		double max = Double.MIN_VALUE;
-		for (MenuItem currentItem : this.itemCollection) {
-			if (currentItem.getPrice() > max) {
-				max = currentItem.getPrice();
-			}
-		}
-		return max;
-	}
 	
 	private double getMinPrice() {
 		double min = Double.MAX_VALUE;
@@ -73,7 +62,6 @@ public class Menu implements java.io.Serializable{
 		}
 		return min;
 	}
-
 	/**gets the MenuItems
 	 * @return the menuItems
 	 */

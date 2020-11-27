@@ -22,17 +22,17 @@ class TestGetPriceRange {
 		arrayList.add(item3);
 		Menu testMenu = new Menu(arrayList,"restaurant");
 		
-		assertEquals(testMenu.getPriceRange(),4.3);
+		assertEquals(testMenu.getPriceRange(),5,70);
 	}
 	
 	@Test
 	void testOneItems() {
-		MenuItem item1 = new MenuItem("test1",5.70);
+		MenuItem item1 = new MenuItem("test1",2.33);
 		ArrayList<MenuItem> arrayList = new ArrayList<MenuItem>();
 		arrayList.add(item1);
 		Menu testMenu = new Menu(arrayList,"restaurant");
 		
-		assertEquals(testMenu.getPriceRange(),0);
+		assertEquals(testMenu.getPriceRange(),2.33);
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ class TestGetPriceRange {
 		arrayList.add(item2);
 		Menu testMenu = new Menu(arrayList,"restaurant");
 		
-		assertEquals(testMenu.getPriceRange(),0);
+		assertEquals(testMenu.getPriceRange(),5.70);
 	}
 
 }

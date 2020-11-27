@@ -16,7 +16,7 @@ class TestFilterByPriceRange {
 	@Test
 	void testFilterOutOneRestaurant() {
 		MenuItem item1 = new MenuItem("test1",10);
-		MenuItem item2 = new MenuItem("test2",5.50);
+		MenuItem item2 = new MenuItem("test2",6.80);
 		ArrayList<MenuItem> arrayList1 = new ArrayList<MenuItem>();
 		arrayList1.add(item1);
 		arrayList1.add(item2);
@@ -46,7 +46,7 @@ class TestFilterByPriceRange {
 		
 		RestaurantCollection testCollection = new RestaurantCollection(restaurantList);
 		
-		RestaurantCollection filteredCollection = testCollection.filterByPriceRange(4);
+		RestaurantCollection filteredCollection = testCollection.filterByPriceRange(6);
 		
 		assertEquals(filteredCollection.getRestaurants().size(),2);
 	}

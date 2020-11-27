@@ -24,7 +24,7 @@ class TestGetPriceRange {
 		Menu testMenu = new Menu(arrayList,"restaurant");
 		Restaurant testRestaurant = new Restaurant(5.3,3,testMenu,"restaurant");
 		
-		assertEquals(testRestaurant.getPriceRange(),4.3);
+		assertEquals(testRestaurant.getPriceRange(),5.70);
 		
 	}
 	
