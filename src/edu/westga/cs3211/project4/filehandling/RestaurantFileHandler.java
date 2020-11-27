@@ -23,7 +23,6 @@ public class RestaurantFileHandler {
 				
 			} catch (IOException | ClassNotFoundException e) {
 				
-				
 			}
 			
 			return readInCollection;

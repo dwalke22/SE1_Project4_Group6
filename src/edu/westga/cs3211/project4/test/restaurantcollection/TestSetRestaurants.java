@@ -11,12 +11,10 @@ import edu.westga.cs3211.project4.model.MenuItem;
 import edu.westga.cs3211.project4.model.Restaurant;
 import edu.westga.cs3211.project4.model.RestaurantCollection;
 
-class TestRestaurantCollectionConstructor {
-
-	
+class TestSetRestaurants {
 
 	@Test
-	void testValidConstructor() {
+	void test() {
 		MenuItem item1 = new MenuItem("test1",5.70);
 		ArrayList<MenuItem> arrayList1 = new ArrayList<MenuItem>();
 		arrayList1.add(item1);
@@ -40,25 +38,11 @@ class TestRestaurantCollectionConstructor {
 		restaurantList.add(testRestaurant2);
 		restaurantList.add(testRestaurant3);
 		
-		RestaurantCollection testCollection = new RestaurantCollection(restaurantList);
-		
-		assertEquals(testCollection.getRestaurants(),restaurantList);
-		
-	}
-	
-	@Test
-	void testInvalidList() {
-	assertThrows(IllegalArgumentException.class,
-			()-> {
-				new RestaurantCollection(null);
-			});
-	}
-	
-	@Test
-	void testParameterlessConstructor() {
 		RestaurantCollection testCollection = new RestaurantCollection();
 		
-		assertEquals(testCollection.getRestaurants().size(),0);
+		testCollection.setRestaurants(restaurantList);
+		
+		assertEquals(restaurantList,testCollection.getRestaurants());
 	}
-	
+
 }
