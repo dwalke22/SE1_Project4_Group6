@@ -1,5 +1,7 @@
 package edu.westga.cs3211.project4.ViewModel;
 
+import java.util.ArrayList;
+
 import edu.westga.cs3211.project4.filehandling.RestaurantFileHandler;
 import edu.westga.cs3211.project4.formatter.MenuFormatter;
 import edu.westga.cs3211.project4.formatter.RestaurantFormatter;
@@ -26,6 +28,8 @@ public class ResturantPickerViewModel {
 	private RestaurantFormatter restaurantFormatter;
 	private MenuFormatter menuFormatter;
 	
+	
+	
 	/*
 	 * Instantiates a new view model
 	 * 
@@ -44,6 +48,8 @@ public class ResturantPickerViewModel {
 		
 		this.restaurantFormatter = new RestaurantFormatter();
 		this.menuFormatter = new MenuFormatter();
+		
+		
 	}
 	
 	/*
@@ -117,6 +123,8 @@ public class ResturantPickerViewModel {
 	public StringProperty menuDetailProperty() {
 		return menuDetailProperty;
 	}
+	
+	
 
 	/**
 	 * Applies the filters and gathers the resulting restaurants
@@ -162,8 +170,8 @@ public class ResturantPickerViewModel {
 	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
 		this.resturantCollection.setRestaurants(fileHandler.DeSerializeRestaurants().getRestaurants());
-		this.resturantCollection = fileHandler.DeSerializeRestaurants();
 		this.updateDisplay(this.resturantCollection);
+		System.out.println("break");
 	}
 
 	/*
@@ -176,4 +184,6 @@ public class ResturantPickerViewModel {
 		this.restaurantDetailProperty.set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
 		this.menuDetailProperty.set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
 	}
+	
+	
 }
