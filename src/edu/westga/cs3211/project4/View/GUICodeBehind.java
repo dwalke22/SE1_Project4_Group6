@@ -42,7 +42,7 @@ public class GUICodeBehind {
 	 private Button loadAllResturantsButton;
 
 	 @FXML
-	 private Button loadAllMenusButton;
+	 private Button selectRandomRestaurant;
 
 	 @FXML
 	 private TextArea resturantTextArea;
@@ -78,57 +78,40 @@ public class GUICodeBehind {
 					this.viewmodel.formatSelectedResturant(newRestaurant);
 				}
 			});
-		
+
 	}
 
 	private void setUpListenerForValidation() {
 		this.priceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue != null) {
-				//if (!newValue.matches("^-?\\d*\\.\\d{2}$")) {
-				//	this.priceTextField.textProperty().set(oldValue);
-				//	this.priceErrorLabel.setVisible(true);
-				//} else {
-				//	this.priceErrorLabel.setVisible(false);
-				//}
-				try  {
-					Double.parseDouble(newValue);
-				}
-				catch(NumberFormatException e) {
-					newValue = oldValue;
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.priceTextField.textProperty().setValue(oldValue);
+					this.priceErrorLabel.setVisible(true);
+				} else {
+					this.priceErrorLabel.setVisible(false);
 				}
 			}
 		});
 		
-		this.ratingTextField.textProperty().addListener((observable, oldvalue, newValue) -> {
+		this.ratingTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue != null) {
-				//if (!newValue.matches("^-?\\d*\\.\\d{2}$")) {
-				//	this.ratingTextField.textProperty().set(oldvalue);
-				//	this.ratingErrorLabel.setVisible(true);
-				//} else {
-				//	this.ratingErrorLabel.setVisible(false);
-				//}
-				try  {
-					Double.parseDouble(newValue);
-				}
-				catch(NumberFormatException e) {
-					newValue = oldvalue;
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.ratingTextField.textProperty().setValue(oldValue);
+					this.ratingErrorLabel.setVisible(true);
+				} else {
+					this.ratingErrorLabel.setVisible(false);
 				}
 			}
 		});
 		
-		this.distanceTextField.textProperty().addListener((observable, oldvalue, newValue) -> {
+		this.distanceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue != null) {
-				//if (!newValue.matches("^-?\\d*\\.\\d{2}$")) {
-				//	this.distanceTextField.textProperty().set(oldvalue);
-				//	this.distacneErrorLabel.setVisible(true);
-				//} else {
-				//	this.distacneErrorLabel.setVisible(false);
-				//}
-				try  {
-					Double.parseDouble(newValue);
-				}
-				catch(NumberFormatException e) {
-					newValue = oldvalue;
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.distanceTextField.textProperty().setValue(oldValue);
+					this.distacneErrorLabel.setVisible(true);
+				} else {
+					this.distacneErrorLabel.setVisible(false);
+
 				}
 			}
 		});
@@ -156,11 +139,6 @@ public class GUICodeBehind {
 	 }
 
 	 @FXML
-	 void handleLoadAllMenues(ActionEvent event) {
-
-	 }
-
-	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
 		 this.viewmodel.loadFile();
 		 System.out.println("loaded");
@@ -170,5 +148,10 @@ public class GUICodeBehind {
 	 @FXML
 	 void handleResetFilter(ActionEvent event) {
 		 this.viewmodel.resetFilters();
+	 }
+	 
+	 @FXML
+	 void handleSelectRandomRestaurant(ActionEvent event) {
+		 this.viewmodel.selectRandomRestaurant();
 	 }
 }

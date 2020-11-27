@@ -1,6 +1,8 @@
 package edu.westga.cs3211.project4.ViewModel;
 
-import java.util.ArrayList;
+
+import java.util.Random;
+
 
 import edu.westga.cs3211.project4.filehandling.RestaurantFileHandler;
 import edu.westga.cs3211.project4.formatter.MenuFormatter;
@@ -42,7 +44,7 @@ public class ResturantPickerViewModel {
 		this.ratingRangeProperty = new SimpleDoubleProperty();
 		this.distanceProperty = new SimpleDoubleProperty();
 		this.resturantCollection = new RestaurantCollection();
-		this.resturantListProperty = new SimpleListProperty<Restaurant>(FXCollections.observableArrayList(this.resturantCollection.getRestaurants()));
+		this.resturantListProperty = new SimpleListProperty<Restaurant>();
 		this.restaurantDetailProperty = new SimpleStringProperty();
 		this.menuDetailProperty = new SimpleStringProperty();
 		
@@ -169,9 +171,9 @@ public class ResturantPickerViewModel {
 	 */
 	public void loadFile() {
 		RestaurantFileHandler fileHandler = new RestaurantFileHandler();
-		this.resturantCollection.setRestaurants(fileHandler.DeSerializeRestaurants().getRestaurants());
-		this.updateDisplay(this.resturantCollection);
-		System.out.println("break");
+		RestaurantCollection loadedCollection = fileHandler.DeSerializeRestaurants();
+		this.resturantCollection.setRestaurants(loadedCollection.getRestaurants());
+		this.resturantListProperty.set(FXCollections.observableArrayList(this.resturantCollection.getRestaurants()));
 	}
 
 	/*
@@ -184,6 +186,19 @@ public class ResturantPickerViewModel {
 		this.restaurantDetailProperty.set(this.restaurantFormatter.FormatRestaurant(newRestaurant));
 		this.menuDetailProperty.set(this.menuFormatter.formatMenu(newRestaurant.getMenu()));
 	}
-	
-	
+
+
+	/**
+	 * Selects a random restaurant from the collection
+	 */
+	public void selectRandomRestaurant() {
+		Random randomGenerator = new Random();
+		
+		int index = randomGenerator.nextInt(this.resturantCollection.size());
+		Restaurant selectedRestaurant = this.resturantCollection.getRestaurants().get(index);
+		
+		this.formatSelectedResturant(selectedRestaurant);
+		
+	}
+
 }

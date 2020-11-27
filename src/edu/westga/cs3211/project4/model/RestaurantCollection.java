@@ -115,4 +115,16 @@ public class RestaurantCollection implements java.io.Serializable {
 	public void setRestaurants(ArrayList<Restaurant> restaurants) {
 		this.restaurants = restaurants;
 	}
+	
+	/**
+	 * Gets the size of the collection
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the size of the collection
+	 */
+	public int size() {
+		return this.restaurants.size();
+	}
 }
