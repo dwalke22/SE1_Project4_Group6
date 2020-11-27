@@ -83,15 +83,36 @@ public class GUICodeBehind {
 
 	private void setUpListenerForValidation() {
 		this.priceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-			
+			if (newValue != null) {
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.priceTextField.textProperty().setValue(oldValue);
+					this.priceErrorLabel.setVisible(true);
+				} else {
+					this.priceErrorLabel.setVisible(false);
+				}
+			}
 		});
 		
-		this.ratingTextField.textProperty().addListener((observable, oldvalue, newValue) -> {
-			
+		this.ratingTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (newValue != null) {
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.ratingTextField.textProperty().setValue(oldValue);
+					this.ratingErrorLabel.setVisible(true);
+				} else {
+					this.ratingErrorLabel.setVisible(false);
+				}
+			}
 		});
 		
-		this.distanceTextField.textProperty().addListener((observable, oldvalue, newValue) -> {
-			
+		this.distanceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (newValue != null) {
+				if (!newValue.isEmpty() && !newValue.matches("[0-9]*\\.?[0-9]*")) {
+					this.distanceTextField.textProperty().setValue(oldValue);
+					this.distacneErrorLabel.setVisible(true);
+				} else {
+					this.distacneErrorLabel.setVisible(false);
+				}
+			}
 		});
 	 }
 
