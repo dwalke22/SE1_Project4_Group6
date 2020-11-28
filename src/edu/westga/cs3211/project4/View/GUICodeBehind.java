@@ -6,6 +6,8 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -135,14 +137,22 @@ public class GUICodeBehind {
 
 	 @FXML
 	 void handleApplyFilters(ActionEvent event) {
-		 this.viewmodel.applyFilters();
+		 try {
+			 this.viewmodel.applyFilters();
+		 } catch (Exception e) {
+			 Alert alert = new Alert(AlertType.ERROR);
+			 alert.setTitle("Error");
+			 alert.setHeaderText("Warning Invalid Input");
+			 alert.setContentText("Filter numbers must be greater than zero");
+			 
+			 alert.showAndWait();
+		 }
+		 
 	 }
 
 	 @FXML
 	 void handleLoadAllResturants(ActionEvent event) {
 		 this.viewmodel.loadFile();
-		 System.out.println("loaded");
-		 this.resturantListView.setItems(this.viewmodel.resturantListProperty());
 	 }
 
 	 @FXML
