@@ -6,8 +6,20 @@ import java.io.ObjectInputStream;
 
 import edu.westga.cs3211.project4.model.RestaurantCollection;
 
+/**
+ * handles loading in the file of restaurants
+ * @author Sam
+ *
+ */
 public class RestaurantFileHandler {
 	
+	
+	/**
+	 * deSerializes the Restaurants located in the project folder, and returns them as a RestaurantCollection
+	 * @preconditions none
+	 * @postconditions none
+	 * @return the deserialized collection of restaurants
+	 */
 	public RestaurantCollection DeSerializeRestaurants() {
 		
 		
